@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+
+<script>
+// kerjaan BR 2016
+// tidak boleh dicontek
+var i,x,y,q;
+
+function tambah(x,y) {
+   var z;
+   //document.write("di fungsi tambah: ");
+   z = x + y;
+   //document.write(z);
+   //document.write("<br />");
+   return(z);
+}
+
+// ini adalah fungsi untuk melakukan kuadrat
+// data masuk via variabel p
+// hasil dikembalikan via variabel z
+function kuadrat(p) {
+   var z;
+   z = p * p ;
+   return(z);
+}
+
+
+for (i=0; i<5 ; i++) {
+   q = kuadrat(i);
+   document.write(i);
+   document.write(" ===> ");
+   document.write(q);
+   document.write("<br>");
+}
+
+
+</script>
+
+
+</body>
+</html>
