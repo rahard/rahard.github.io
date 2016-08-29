@@ -18,6 +18,10 @@ function monitorSensorTag() {
          connected = true;
          console.log('Connected to SensorTag');
          device.discoverServicesAndCharacteristics(function(callback){});
+         getDeviceInfo();
+         //.initKeys();
+         //initAirSensors();
+         //initAccelAndGyro();
       }); // end device.connect
 
       device.on('disconnect', function(onDisconnect){
@@ -25,6 +29,38 @@ function monitorSensorTag() {
          console.log('Device disconnected');
          client.end();
       }); // end device.on disconnect
+
+      device.on('simpleKeyChange', function(left, right) {
+        console.log('key pressed');
+      });
+
+      function getDeviceInfo(){
+        console.log('getting device info')
+         device.readDeviceName(function(callback) {
+           console.log('readDeviceName: '+callback);
+         });
+         device.readSystemId(function(callback) {
+           console.log('readSystemId: '+callback);
+     	   });
+         device.readManufacturerName(function(callback) {
+           console.log('readManufacturerName: '+callback);
+         });
+      }; // end getDeviceInfo()
+
+      function initKeys() {
+        device.notifySimpleKey(function(left, right) {
+        });
+      };
+
+      function initAccelAndGyro() {
+        device.enableAccelerometer();
+      };
+
+      function initAirSensors() {
+        device.enableIrTemperature(function(err) {if (err) throw err;});
+        //device.enableLuxometer(function(err) {if (err) throw err;});
+      };
+
    }); // end SensorTag.discover
 
 
