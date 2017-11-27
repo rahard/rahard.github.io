@@ -3,7 +3,7 @@ function puter() {
   var kata="";
   
   for (i=0; i<5; i++) {
-     kata = "budi" + i;
+     kata = "budi" + i + "... ";
      document.write(kata);
   }
   
